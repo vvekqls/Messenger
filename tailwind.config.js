@@ -8,5 +8,11 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
-}
+  plugins: [
+    requried(
+      '@tailwindcss/forms'({
+        strategy: 'class',
+      })
+    ),
+  ],
+};
