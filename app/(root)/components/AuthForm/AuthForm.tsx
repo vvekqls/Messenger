@@ -2,11 +2,11 @@
 import { useCallback, useState } from 'react';
 import { useForm, FieldValues, SubmitHandler } from 'react-hook-form';
 import { BsGithub, BsGoogle } from 'react-icons/bs';
+import axios from 'axios';
 
 import Input from '../inputs/input';
 import Button from '../Button/Button';
 import AuthSocialButton from './AuthSocialButton';
-import { error } from 'console';
 
 type Varitant = 'LOGIN' | 'REGISTER';
 
@@ -41,6 +41,7 @@ const AuthForm = () => {
     }
 
     if (variant === 'REGISTER') {
+      axios.post('/api/register', data);
     }
   };
 
@@ -73,7 +74,7 @@ const AuthForm = () => {
         >
           {variant !== 'LOGIN' && (
             <Input
-              id="Name"
+              id="name"
               label="Name"
               type="name"
               register={register}
@@ -81,14 +82,14 @@ const AuthForm = () => {
             />
           )}
           <Input
-            id="Email"
+            id="email"
             label="Email address"
             type="email"
             register={register}
             errors={errors}
           />
           <Input
-            id="Password"
+            id="password"
             label="Password"
             type="password"
             register={register}
