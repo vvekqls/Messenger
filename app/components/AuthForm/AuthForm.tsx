@@ -7,8 +7,8 @@ import { toast } from 'react-hot-toast';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
-import Input from '../inputs/input';
-import Button from '../Button/Button';
+import Input from '../Inputs';
+import Button from '../Button';
 import AuthSocialButton from './AuthSocialButton';
 
 type Varitant = 'LOGIN' | 'REGISTER';
