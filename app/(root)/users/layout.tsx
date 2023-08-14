@@ -1,14 +1,19 @@
 import '@/styles/globals.css';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import getUsers from '../../api/actions/getUsers';
 
-export default function userLayout({
+export default async function userLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const users = await getUsers();
   return (
     <Sidebar>
-      <div className="h-full">{children}</div>
+      <div className="h-full">
+        {/* <UserList items={users} /> */}
+        {children}
+      </div>
     </Sidebar>
   );
 }
