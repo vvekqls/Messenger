@@ -1,11 +1,10 @@
-'use clients';
+'use client';
 
 import clsx from 'clsx';
 import useConversation from '@/app/hooks/useConversatiton';
 import EmptyState from '@/app/components/EmptyState';
-import { HiDocumentDownload } from 'react-icons/hi';
 
-const Home = () => {
+export default function Home() {
   const { isOpen } = useConversation();
 
   return (
@@ -15,4 +14,4 @@ const Home = () => {
       <EmptyState />
     </div>
   );
-};
+}
