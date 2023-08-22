@@ -3,7 +3,6 @@
 import { useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
-import { Conversation, Message, User } from '@prisma/client';
 import { useSession } from 'next-auth/react';
 import clsx from 'clsx';
 import { FullConversationType } from '@/app/types';
@@ -98,7 +97,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
           <p
             className={clsx(
               `truncate 
-               text-sm`,
+              text-sm`,
               hasSeen ? 'text-gray-500' : 'tex-black font-medium'
             )}
           >

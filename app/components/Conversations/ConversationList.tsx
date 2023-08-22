@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { MdOutlineGroupAdd } from 'react-icons/md';
 import clsx from 'clsx';
 import { FullConversationType } from '@/app/types';
-import { Conversation } from '@prisma/client';
+
 import { useRouter } from 'next/navigation';
 import useConversation from '@/app/hooks/useConversatiton';
 
