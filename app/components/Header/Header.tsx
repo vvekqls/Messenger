@@ -13,7 +13,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ conversation }) => {
   const otherUser = useOtherUser(conversation);
-  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   const statusText = useMemo(() => {
     if (conversation.isGroup) {
@@ -25,8 +25,8 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
 
   return (
     <>
-      <ProfileDrawer 
-        data={conversation} 
+      <ProfileDrawer
+        data={conversation}
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       />
@@ -55,12 +55,14 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
           <div className="flex flex-col">
             {conversation.name || otherUser.name}
           </div>
-          <div className="text-sm font-light text-neutral-500">{statusText}</div>
+          <div className="text-sm font-light text-neutral-500">
+            {statusText}
+          </div>
         </div>
         <HiEllipsisHorizontal
           className="text-sky-500 cursor-pointer  hover:text-sky-600 transition"
           size={32}
-          onClick={() => {}}
+          onClick={() => setDrawerOpen(true)}
         />
       </div>
     </>
