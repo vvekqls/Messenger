@@ -16,7 +16,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ isLast, data }) => {
   const session = useSession();
 
   const isOwn = session?.data?.user?.email === data?.sender?.email;
-  const sennLis = (data.seen || [])
+  const seenList = (data.seen || [])
     .filter((user) => user.email !== data?.sender?.email)
     .map((user) => user.name)
     .join(', ');
@@ -56,6 +56,17 @@ const MessageBox: React.FC<MessageBoxProps> = ({ isLast, data }) => {
             <div>{data.body}</div>
           )}
         </div>
+        {isLast && isOwn && seenList.length > 0 && (
+          <div
+            className="
+              text-xs
+              font-light  
+              text-gray-500
+            "
+          >
+            {`Seen by ${seenList}`}
+          </div>
+        )}
       </div>
     </div>
   );

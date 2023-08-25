@@ -22,14 +22,13 @@ const Userbox: React.FC<UserboxProps> = ({ data }) => {
         userId: data.id,
       })
       .then((data) => {
-        router.push(`conversaitons/${data.data.id}`);
+        router.push(`conversations/${data.data.id}`);
       })
       .finally(() => setIsLoading(false));
   }, [data, router]);
 
   return (
     <div
-      onClick={handleClick}
       className="
         w-full  
         relative  
@@ -43,6 +42,7 @@ const Userbox: React.FC<UserboxProps> = ({ data }) => {
         transition
         cursor-poiner
       "
+      onClick={handleClick}
     >
       <Avatar user={data} />
       <div className="min-w-0 flex-1">
