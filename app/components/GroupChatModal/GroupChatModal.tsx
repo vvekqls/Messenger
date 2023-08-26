@@ -6,9 +6,10 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FieldValues, useForm, SubmitHandler } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import Modal from '../Modal/Modal';
+import Modal from '../Modal';
 import Input from '../Inputs';
-import Select from '../Select/Select';
+import Button from '../Button';
+import Select from '../Select';
 
 interface GroupChatModalProps {
   users: User[];
@@ -94,6 +95,29 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
               />
             </div>
           </div>
+        </div>
+        <div
+          className="
+          mt-6 
+          flex 
+          items-center 
+          justify-end 
+          gap-x-6"
+        >
+          <Button
+            disabled={isLoading}
+            onClick={onClose}
+            type="button"
+            secondary
+          >
+            Cancel
+          </Button>
+          <Button
+            disabled={isLoading}
+            type="submit"
+          >
+            Create
+          </Button>
         </div>
       </form>
     </Modal>

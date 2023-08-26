@@ -8,7 +8,7 @@ import useConversation from '@/app/hooks/useConversatiton';
 import { FiAlertTriangle } from 'react-icons/fi';
 import { Dialog } from '@headlessui/react';
 import Button from '../Button';
-import Modal from '../Modal/Modal';
+import Modal from '../Modal';
 
 interface ConfirmModalProps {
   isOpen?: boolean;

@@ -4,7 +4,7 @@ import { HiEllipsisHorizontal, HiChevronLeft } from 'react-icons/hi2';
 import { FullConversationType } from '@/app/types';
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import Avatar from '../Avatar/Avatar';
+import Avatar from '../Avatar';
 import ProfileDrawer from '../ProfileDrawer/ProfileDrawer';
 
 interface HeaderProps {

@@ -7,7 +7,7 @@ import { Fragment, useMemo, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { IoClose, IoTrash } from 'react-icons/io5';
 import ConfirmModal from '../ConfirmModal/ConfirmModal';
-import Avatar from '../Avatar/Avatar';
+import Avatar from '../Avatar';
 
 interface ProfileDrawerProps {
   data: FullConversationType;

@@ -4,7 +4,7 @@ import useConversation from '@/app/hooks/useConversatiton';
 import axios from 'axios';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { HiPhoto, HiPaperAirplane } from 'react-icons/hi2';
-import MessageInput from '../MessageInput/MessageInput';
+import MessageInput from '../MessageInput';
 import { CldUploadButton } from 'next-cloudinary';
 
 const Form = () => {

@@ -3,7 +3,7 @@ import { User } from '@prisma/client';
 import useRoutes from '@/app/hooks/useRoutes';
 import React, { useState } from 'react';
 
-import Avatar from '../../Avatar/Avatar';
+import Avatar from '../../Avatar';
 import DesktopSidebarItem from './DesktopSidebarItem';
 import SettingModal from '../SettingModal/SettingModal';
 interface DesktopSidebarProps {
