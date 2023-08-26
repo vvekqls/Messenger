@@ -1,6 +1,7 @@
 import prisma from '@/app/libs/prismadb';
 
 import getSession from './getSession';
+import { NextResponse } from 'next/server';
 
 const getUsers = async () => {
   const session = await getSession();
@@ -22,6 +23,7 @@ const getUsers = async () => {
     return users
   } catch (error: any) {
     console.log(error)
+    return []
   }
 }
 

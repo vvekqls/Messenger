@@ -1,4 +1,4 @@
-'use clients';
+'use client';
 
 import useOtherUser from '@/app/hooks/useOtherUser';
 import { FullConversationType } from '@/app/types';
@@ -45,7 +45,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
         isOpen={confirmModal}
         onClose={() => setConfirmOpen(false)}
       />
-        
+
       <Transition.Root
         show={isOpen}
         as={Fragment}
