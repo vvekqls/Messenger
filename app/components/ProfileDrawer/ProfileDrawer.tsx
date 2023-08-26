@@ -6,7 +6,7 @@ import format from 'date-fns/format';
 import { Fragment, useMemo, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { IoClose, IoTrash } from 'react-icons/io5';
-import Modal from '../Modal/Modal';
+import ConfirmModal from '../ConfirmModal/ConfirmModal';
 import Avatar from '../Avatar/Avatar';
 
 interface ProfileDrawerProps {
@@ -21,7 +21,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
   onClose,
 }) => {
   const otherUser = useOtherUser(data);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [confirmModal, setConfirmOpen] = useState(false);
 
   const joinedDate = useMemo(() => {
     return format(new Date(otherUser.createdAt), 'PP');
@@ -41,14 +41,11 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
 
   return (
     <>
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      >
-        <div className="bg-white p-5">
-          <p>Hello is Modal</p>
-        </div>
-      </Modal>
+      <ConfirmModal
+        isOpen={confirmModal}
+        onClose={() => setConfirmOpen(false)}
+      />
+        
       <Transition.Root
         show={isOpen}
         as={Fragment}
@@ -189,7 +186,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                 cursor-pointer
                                 hover:opacity-75
                               "
-                              onClick={() => setIsModalOpen(true)}
+                              onClick={() => setConfirmOpen(true)}
                             >
                               <div
                                 className="
