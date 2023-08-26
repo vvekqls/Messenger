@@ -48,7 +48,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
               items-center
               justify-center
               p-4
-              text-center
               sm:p-0
             "
           >
