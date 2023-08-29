@@ -1,6 +1,7 @@
 import '@/styles/globals.css';
 import ToasterContext from '../context/Toaster';
 import AuthContext from '../context/AuthContext';
+import ActiveStatus from '../components/ActiveStatus';
 
 export const metadata = {
   title: 'Next.js',
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         <AuthContext>
           <ToasterContext />
+          <ActiveStatus />
           {children}
         </AuthContext>
       </body>
