@@ -1,7 +1,7 @@
 'use client';
 
 import useOtherUser from '@/app/hooks/useOtherUser';
-import { FullConversationType } from '@/app/types';
+import { Conversation, User } from '@prisma/client';
 import useActiveList from '@/app/hooks/useActiveList';
 import format from 'date-fns/format';
 import { Fragment, useMemo, useState } from 'react';
@@ -12,7 +12,9 @@ import Avatar from '../Avatar';
 import AvatarGroup from '../AvatarGroup';
 
 interface ProfileDrawerProps {
-  data: FullConversationType;
+  data: Conversation & {
+    users: User[];
+  };
   isOpen: boolean;
   onClose: () => void;
 }
