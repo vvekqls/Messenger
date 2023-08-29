@@ -1,9 +1,12 @@
 'use client';
-import useOtherUser from '@/app/hooks/useOtherUser';
-import { HiEllipsisHorizontal, HiChevronLeft } from 'react-icons/hi2';
-import { FullConversationType } from '@/app/types';
 import { useMemo, useState } from 'react';
+import { HiEllipsisHorizontal, HiChevronLeft } from 'react-icons/hi2';
 import Link from 'next/link';
+
+import useOtherUser from '@/app/hooks/useOtherUser';
+import useActiveList from '@/app/hooks/useActiveList';
+import { FullConversationType } from '@/app/types';
+
 import Avatar from '../Avatar';
 import ProfileDrawer from '../ProfileDrawer/ProfileDrawer';
 import AvatarGroup from '../AvatarGroup';
@@ -16,13 +19,16 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
   const otherUser = useOtherUser(conversation);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  const { members } = useActiveList();
+  const isActive = members.indexOf(otherUser?.email!) !== -1;
+
   const statusText = useMemo(() => {
     if (conversation.isGroup) {
       return `${conversation.users.length} members`;
     }
 
-    return 'Active';
-  }, [conversation]);
+    return isActive ? 'Active' : 'Offline';
+  }, [conversation, isActive]);
 
   return (
     <>
