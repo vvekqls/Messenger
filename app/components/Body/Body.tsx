@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
+import { find } from 'lodash';
 import { FullMessageType } from '@/app/types';
 import useConversation from '@/app/hooks/useConversatiton';
 import { pusherClient } from '@/app/libs/pusher';
@@ -25,14 +26,35 @@ const Body: React.FC<BodyProps> = ({ initialMessages }) => {
     bottomRef?.current?.scrollIntoView();
 
     const messageHandler = (message: FullMessageType) => {
-      
-    }
+      setMessage((current) => {
+        if (find(current, { id: message.id })) {
+          return current;
+        }
+
+        return [...current, message];
+      });
+
+      bottomRef?.current?.scrollIntoView();
+    };
+
+    const updateMessageHandler = (newMessage: FullMessageType) => {
+      setMessage((current) =>
+        current.map((currentMessage) => {
+          if (currentMessage.id === newMessage.id) {
+            return newMessage;
+          }
+          return currentMessage;
+        })
+      );
+    };
 
     pusherClient.bind('messages:new', messageHandler);
+    pusherClient.bind('messages:update', updateMessageHandler);
 
     return () => {
       pusherClient.unsubscribe(conversationId);
       pusherClient.unbind('messages:new', messageHandler);
+      pusherClient.unbind('messages:update', updateMessageHandler);
     };
   }, [conversationId]);
   return (
