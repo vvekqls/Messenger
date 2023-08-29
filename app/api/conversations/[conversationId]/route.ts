@@ -12,7 +12,6 @@ export async function DELETE(
   { params }: { params: IParams }
 ) {
   try {
-    console.log('reques is comingg in check')
     const { conversationId } = params;
     const currentUser = await getCurrentUser();
 
