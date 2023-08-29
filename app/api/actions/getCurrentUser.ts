@@ -15,10 +15,13 @@ const getCurrentUser = async () => {
       }
     })
 
-    return currentUser
+    if (!currentUser) {
+      return null;
+    }
 
+    return currentUser;
   } catch (error: any) {
-    return null
+    return null;
   }
 }
 

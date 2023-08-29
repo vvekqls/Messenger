@@ -7,7 +7,7 @@ import Avatar from '../../Avatar';
 import DesktopSidebarItem from './DesktopSidebarItem';
 import SettingModal from '../SettingModal/SettingModal';
 interface DesktopSidebarProps {
-  currentUser: User;
+  currentUser: User | null;
 }
 
 const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {

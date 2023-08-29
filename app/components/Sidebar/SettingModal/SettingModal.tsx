@@ -12,7 +12,7 @@ import Input from '../../Inputs';
 import Button from '../../Button';
 
 interface SettingModalProps {
-  currentUser: User;
+  currentUser: User | null;
   isOpen?: boolean;
   onClose: () => void;
 }
